@@ -1,16 +1,14 @@
-import './App.css'
+import './App.css';
 import Header from "./components/Header.jsx";
-import { Outlet } from 'react-router-dom'
+import HamBurger from "./components/HamBurger.jsx";
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <Header/>
-      <section>
-        <section id="hamBurger">
-          <section></section>
-          
-        </section>
+      <section id="bodyContainer">
+        <HamBurger/>
         <Outlet/>
       </section>
     </>

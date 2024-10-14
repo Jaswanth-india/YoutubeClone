@@ -5,8 +5,13 @@ import './index.css'
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
+// Components
 import App from './App.jsx'
+import Home from "./components/Home.jsx";
+import Login from "./components/Login.jsx";
+import Register from "./components/Register.jsx";
 import CreateChannel from "./components/CreateChannel.jsx";
+import ChannelDashboard from "./components/ChannelDashboard.jsx";
 
 const router=createBrowserRouter([
   {
@@ -16,15 +21,15 @@ const router=createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<></>,
+        element:<Home/>,
       },
       {
         path:"/login",
-        element:<></>,
+        element:<Login/>,
       },
       {
         path:"/register",
-        element:<></>
+        element:<Register/>
       },
       {
         path:"createChannel",
@@ -32,7 +37,7 @@ const router=createBrowserRouter([
       },
       {
         path:"channelDashboard",
-        element:<></>
+        element:<ChannelDashboard/>
       }
     ]
   }

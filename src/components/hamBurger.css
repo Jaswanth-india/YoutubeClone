@@ -1,0 +1,24 @@
+#hamBurger > div{
+    border-bottom:1px solid rgb(46, 46, 46);
+}
+
+#hamBurger > div > div{
+    padding:8px 10px;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+#hamBurger h4{
+    margin:10px 0px 5px 0px;
+}
+
+#hamBurger b{
+    font-weight:300;
+    font-size:0.9em;
+}
+
+#hamBurger img{
+    width:24px;
+    height:24px;
+    margin-right:20px;
+}

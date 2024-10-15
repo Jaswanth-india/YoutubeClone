@@ -9,10 +9,6 @@ body{
     display:flex;
 }
 
-main{
-    flex-grow:1;
-}
-
 a{
     color:unset;
     text-decoration-line:none;

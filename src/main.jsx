@@ -12,6 +12,7 @@ import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import CreateChannel from "./components/CreateChannel.jsx";
 import ChannelDashboard from "./components/ChannelDashboard.jsx";
+import VideoPage from "./components/VideoPage.jsx";
 
 const router=createBrowserRouter([
   {
@@ -32,12 +33,16 @@ const router=createBrowserRouter([
         element:<Register/>
       },
       {
-        path:"createChannel",
+        path:"/createChannel",
         element:<CreateChannel/>
       },
       {
-        path:"channelDashboard",
+        path:"/channelDashboard",
         element:<ChannelDashboard/>
+      },
+      {
+        path:"/videoPage",
+        element:<VideoPage/>
       }
     ]
   }

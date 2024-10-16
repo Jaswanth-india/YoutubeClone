@@ -5,17 +5,20 @@ import { Outlet } from 'react-router-dom';
 import { useState } from "react"
 
 import searchInputContext from "./utils/searchInput.js";
+import jwtTokenContext from "./utils/jwtTokenContext.js";
 
 function App() {
   let [searchInput,setSearchInput]= useState("a");
-  let [jwtToken,setJWTToken]= useState("")
+  let [jwtToken,setJwtToken]= useState("")
   return (
     <searchInputContext.Provider value={{searchInput,setSearchInput}}>
-      <Header/>
-      <section id="bodyContainer">
-        <HamBurger/>
-          <Outlet/>    
-      </section>
+      <jwtTokenContext.Provider value={{jwtToken,setJwtToken}}>
+        <Header/>
+        <section id="bodyContainer">
+          <HamBurger/>
+            <Outlet/>    
+        </section>
+      </jwtTokenContext.Provider>
     </searchInputContext.Provider>
   )
 }

@@ -1,8 +1,9 @@
 import "./Login.css";
-/* import jwtTokenContext from "../utils/jwtTokenContext"; */
-import { useContext } from "react"
+import jwtTokenContext from "../utils/jwtTokenContext";
+import { useContext } from "react";
 
 function Login(){
+    let setJwtToken=useContext(jwtTokenContext).setJwtToken;
     function handleClick(){
         fetch("http://localhost:5100/login",{
             method:"post",
@@ -10,8 +11,8 @@ function Login(){
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
-                userName:document.querySelector("input").value,
-                password:document.querySelectorAll("input")[1].value
+                userName:document.querySelector("#userNameLogin").value,
+                password:document.querySelector("#passwordLogin").value
             })
         })
         .then(res=>res.json())
@@ -23,7 +24,7 @@ function Login(){
                 setTimeout(()=>{
                     document.querySelectorAll("#login > div > div")[1].style.display="none";
                 },2000)
-                jwtToken.setjwtToken(res.token);
+                setJwtToken(res.token);
             }else{
                 document.querySelectorAll("#login > div > div")[1].innerHTML="Login Unsuccessfull";
                 document.querySelectorAll("#login > div > div")[1].style.background="rgb(238, 152, 126)";
@@ -45,11 +46,11 @@ function Login(){
                                 <tbody>
                                     <tr>
                                         <td>User Name:</td>
-                                        <td><input/></td>
+                                        <td><input id="userNameLogin"/></td>
                                     </tr>
                                     <tr>
                                         <td>Password:</td>
-                                        <td><input type="password"/></td>
+                                        <td><input id="passwordLogin" type="password"/></td>
                                     </tr>
                                 </tbody>
                             </table>

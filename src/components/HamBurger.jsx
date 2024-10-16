@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 import "./hamBurger.css";
 function HamBurger(){
     return(
         <section id="hamBurger">
             <div>
-                <div className="hamBurgerItemContainers"><div><img src="{}"/></div><div><b>Home</b></div></div>
+                <div className="hamBurgerItemContainers"><div><img src="{}"/></div><div><b><Link to="/">Home</Link></b></div></div>
                 <div className="hamBurgerItemContainers"><div><img src="{}"/></div><div><b>Shorts</b></div></div>
                 <div className="hamBurgerItemContainers"><div><img src="{}"/></div><div><b>Subscriptions</b></div></div>
             </div>

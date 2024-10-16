@@ -3,8 +3,12 @@ import youtubeIcon from "../assets/youtube.png";
 import searchIcon from "../assets/search.png";
 import "./header.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import searchInputContext from "../utils/searchInput.js";
 
 function Header(){
+    let setSearchInput=useContext(searchInputContext).setSearchInput;
     function handleClick(){
         if(document.querySelector("#hamBurger")){
             const hamBurgerItemContainers=document.querySelectorAll(".hamBurgerItemContainers")
@@ -39,13 +43,17 @@ function Header(){
             }
         }
     }
+
+    function handleOnChange(e){
+        setSearchInput(e.target.value);
+    }
     return(
         <header>
             <div><button onClick={handleClick} id="menuButton"><img src={menuIcon} title="open menu icons"/></button></div>
             <div><img src={youtubeIcon}/></div>
             <div><h3>Youtube<sup> IN</sup></h3></div>
             <div><div id="searchContainer">
-                    <input type="text" placeholder="Search"/>
+                    <input type="text" placeholder="Search" onChange={(e)=>{handleOnChange(e)}}/>
                     <button id="searchButton"><img src={searchIcon}/></button>
                 </div></div>
             <div><Link to="/login">{}</Link></div>

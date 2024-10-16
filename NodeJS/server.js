@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import videosRoutes from "./Routes/videos.routes.js";
+import userRoutes from "./Routes/users.routes.js";
 
 let dumpData=[
     {
@@ -2858,4 +2859,5 @@ app.use(cors());
 
 app.use(express.json());
 
-videosRoutes(app)
+videosRoutes(app);
+userRoutes(app);

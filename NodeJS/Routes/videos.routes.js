@@ -391,6 +391,32 @@ function videosRoutes(app){
       res.send(data[0]);
     })
   })
+
+  app.put("/addComment",(req,res)=>{
+    jwt.verify(req.headers.authorization.split(" ")[1],"secretKey",(err,user)=>{
+      videoModel.updateOne({id:req.body.videoId},{$push:{comments:{userName:user,comment:req.body.comment}}})
+      .then(data=>{
+      res.send({status:true})
+    })  
+    })
+  })
+
+  app.delete("/deleteComment",(req,res)=>{
+    jwt.verify(req.headers.authorization.split(" ")[1],"secretKey",(err,user)=>{
+      videoModel.find({id:req.body.videoId})
+      .then((video)=>{
+        for(let i=0;i<video[0].comments.length;i++){
+          if(video[0].comments[i] && (video[0].comments[i].userName===req.body.comment.userName) && (video[0].comments[i].comment==req.body.comment.comment)){
+            delete video[0].comments[i];
+            break;
+          }
+        }
+        videoModel.updateOne({id:req.body.videoId},{$set:{comments:video[0].comments}}).then(data=>{
+          res.send({status:true});
+        })
+      })
+    })
+  })
 }
 
 export default videosRoutes;

@@ -7,8 +7,9 @@ function ChannelDashboard(){
     let userData=useContext(userDataContext);
     let handle=useRef("");
     let [userVideos,setUserVideos]=useState([]);
-    if(userData.userData.split(" ")[2]==="true"){
-        useEffect(()=>{
+    
+    useEffect(()=>{
+        if(userData.userData.split(" ")[2]==="true"){
             fetch("http://localhost:5100/userVideos",{
                 method:"get",
                 headers:{
@@ -19,8 +20,9 @@ function ChannelDashboard(){
             .then(res=>{
                 setUserVideos(res);
             })
-        },[])
-    }
+        }
+    },[userData.userData.split(" ")[2]])
+
     function handleClick(e){
         e.target.blur();
         fetch("http://localhost:5100/createChannel",{

@@ -19,11 +19,40 @@ function VideoPage(){
         .then(res=>{
             setData(res);
         })
-        userData.split(" ")[1]?null:document.querySelector("#addCommentButton").disable=true;
+        userData.split(" ")[1]?null:document.querySelector("#addCommentButton").disabled=true;
     },[])
-    function handleCommentConfirm(){
 
+    function handleCommentConfirm(){
+        document.querySelector("#videoPage input").value?(fetch("http://localhost:5100/addComment",{
+            method:"put",
+            headers:{
+                "Content-Type":"application/json",
+                "authorization":"JWT " + userData.split(" ")[0]
+            },
+            body:JSON.stringify({
+                videoId:videoId.id,
+                comment:document.querySelector("#videoPage input").value
+            })
+        }).then(res=>res.json()).then(res=>{if(res.status){document.querySelector("#alert").style.display="unset"}})):null;
     }
+
+    function handleDeleteComment(comment){
+        console.log(comment);
+        fetch("http://localhost:5100/deleteComment",{
+            method:"delete",
+            headers:{
+                "Content-Type":"application/json",
+                "authorization":"JWT " +userData.split(" ")[1]
+            },
+            body:JSON.stringify({comment:comment,videoId:videoId.id})
+        }).then(res=>res.json())
+        .then(res=>{
+            if(res.status){
+                document.querySelector("#alert").style.display="unset";
+            }
+        })
+    }
+
     return(
         <main id="videoPage">
             <div>
@@ -36,15 +65,16 @@ function VideoPage(){
                     </div>
                 </div>
                 <div>
-                    {data.comments.map((comment)=>{
+                    <div id="alert">Please go back and come to this page again to see changes</div>
+                    {data.comments && data.comments.map((comment,index)=>{
                         return(
-                            <div className="comments">
-                                <div>{comment.userName.toUpperCase()}</div>
+                            comment && <div className="comments" key={index}>
+                                <div>{comment.userName[0].toUpperCase()}</div>
                                 <div>
                                     <div>{comment.userName}</div>
                                     <div>{comment.comment}</div>
-                                    <button><img src={deleteImage}/></button>
                                 </div>
+                                {(userData.split(" ")[1]==comment.userName)?<button onClick={()=>{handleDeleteComment(comment)}}><img src={deleteImage}/></button>:null}
                             </div>
                         )
                     })}

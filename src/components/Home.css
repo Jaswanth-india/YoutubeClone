@@ -6,6 +6,21 @@
     margin:20px 20px 0px 50px;
 }
 
+#home section:nth-of-type(1){
+    width:100%;
+    height:fit-content;
+    margin-bottom:20px;
+    display:flex;
+}
+
+#home section:nth-of-type(1) > div{
+    color:black;
+    background-color:rgb(154, 154, 154);
+    padding:1px 5px;
+    border:1px solid white;;
+    margin:0px 2px 0px 2px;
+}
+
 .videoTileContainer{
     width:23%;
     margin-bottom:30px;

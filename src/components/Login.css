@@ -15,7 +15,7 @@
 
 #login > div{
     width:40vw;
-    border:2px double black;
+    border:2px double rgb(48, 48, 48);
 }
 
 h1{
@@ -45,4 +45,12 @@ h1{
     width:100%;
     display:flex;
     justify-content:center;
+}
+
+#login > div> div:nth-of-type(3){
+    margin:0px 0px 10px 20px;
+}
+
+#login > div > div:nth-of-type(3) a{
+    color:rgb(0, 119, 255);
 }

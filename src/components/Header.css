@@ -22,7 +22,7 @@ header #menuButton img{
     height:20px;
 }
 
-header div:nth-of-type(2){
+header >div:nth-of-type(2){
     margin-left:15px;
     margin-right:3px;
 }
@@ -60,6 +60,7 @@ header div:nth-of-type(4) > div{
 }
 
 header input{
+    color:white;
     flex-grow:1;
     background-color:rgb(18, 18, 18);
     box-sizing:border-box;
@@ -92,8 +93,39 @@ header div:nth-of-type(4) button img{
 }
 
 header div:nth-of-type(5){
-    margin-left:100px;
     display:flex;
     justify-content:center;
     align-items:center;
+    position:relative;
+}
+
+header > div:nth-of-type(5) > button{
+    color:white;
+    background-color:transparent;
+    max-width:400px;
+    overflow:hidden;
+    border:0px;
+}
+
+header div:nth-of-type(5) > div{
+    display:none;
+    position:absolute;
+    top:40px;
+    right:0px;
+}
+
+#userAccountMenu{
+    background-color:rgb(40, 40, 40);
+    padding:8px 0px;
+}
+
+#userAccountMenu div{
+    width:150px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#userAccountMenu div:nth-of-type(1) a{
+    color:rgb(60, 153, 233);
 }

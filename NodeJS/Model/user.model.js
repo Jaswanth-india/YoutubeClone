@@ -9,7 +9,9 @@ const userSchema=mongoose.Schema({
     password:{
         required:true,
         type:String
-    }
+    },
+    channelCreated:Boolean,
+    videos:Array,    
 });
 
 export const userModel=mongoose.model("user",userSchema);

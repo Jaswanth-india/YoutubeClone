@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import searchInputContext from "../utils/searchInput.js";
+import userDataContext from "../utils/userDataContext.js";
 
 function Header(){
     let setSearchInput=useContext(searchInputContext).setSearchInput;
+    let userData=useContext(userDataContext).userData;
     function handleClick(){
         if(document.querySelector("#hamBurger")){
             const hamBurgerItemContainers=document.querySelectorAll(".hamBurgerItemContainers")
@@ -47,6 +49,14 @@ function Header(){
     function handleOnChange(e){
         setSearchInput(e.target.value);
     }
+
+    function handleUserNameClick(){
+        if(document.getElementById("userAccountMenu").style.display!="block"){
+            document.getElementById("userAccountMenu").style.display="block";
+        }else{
+            document.getElementById("userAccountMenu").style.display="none";
+        }
+    }
     return(
         <header>
             <div><button onClick={handleClick} id="menuButton"><img src={menuIcon} title="open menu icons"/></button></div>
@@ -56,7 +66,14 @@ function Header(){
                     <input type="text" placeholder="Search" onChange={(e)=>{handleOnChange(e)}}/>
                     <button id="searchButton"><img src={searchIcon}/></button>
                 </div></div>
-            <div><Link to="/login">{}</Link></div>
+            <div>
+                {userData?<button onClick={handleUserNameClick}>{userData.split(" ")[1]}</button>:<Link to="/login">Sign In</Link>}
+                <div id="userAccountMenu">
+                    <div><Link to="/channelDashboard">View Channel</Link></div>
+                    <hr/>
+                    <div><Link to="/login">New User login</Link></div>
+                </div>
+            </div>
         </header>
     )
 }

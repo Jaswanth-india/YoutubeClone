@@ -11,8 +11,8 @@ function Register(){
                     "Content-Type":"application/json"
                 },
                 body:JSON.stringify({
-                    userName:document.querySelector("#userNameRegister").value,
-                    password:document.querySelector("#passwordRegister").value
+                    userName:document.querySelector("#userNameRegister").value.trim(),
+                    password:document.querySelector("#passwordRegister").value.trim()
                 })
             })
             .then(res=>res.json())

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 let videoSchema=mongoose.Schema({
     id:{
         required:true,
-        type:String,
+        type:Number,
     },
     title:String,
     thumbnail:String,

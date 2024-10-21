@@ -10,7 +10,6 @@ import App from './App.jsx'
 import Home from "./components/Home.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
-import CreateChannel from "./components/CreateChannel.jsx";
 import ChannelDashboard from "./components/ChannelDashboard.jsx";
 import VideoPage from "./components/VideoPage.jsx";
 
@@ -31,10 +30,6 @@ const router=createBrowserRouter([
       {
         path:"/register",
         element:<Register/>
-      },
-      {
-        path:"/createChannel",
-        element:<CreateChannel/>
       },
       {
         path:"/channelDashboard",

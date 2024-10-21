@@ -385,6 +385,12 @@ function videosRoutes(app){
       })
     })
   })
+
+  app.get("/videoById/:id",(req,res)=>{
+    videoModel.find({id:req.params.id}).then(data=>{
+      res.send(data[0]);
+    })
+  })
 }
 
 export default videosRoutes;

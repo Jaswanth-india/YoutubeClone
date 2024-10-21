@@ -3,7 +3,7 @@ function VideoTile(props){
     let color="rgb("+Math.floor(Math.random()*255)+"," + Math.floor(Math.random()*255) + "," + Math.floor(Math.random()*255)+")"
     return(
         <div className="videoTileContainer">
-            <Link to="/videoPage">
+            <Link to={"/videoPage/"+props.data.id}>
                 <img src={props.data.thumbnail}/>
             </Link>
             <div>

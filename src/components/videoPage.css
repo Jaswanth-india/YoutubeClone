@@ -1,0 +1,81 @@
+#videoPage{
+    flex-grow:1;
+    display:flex;
+}
+
+#videoPage > div:nth-of-type(1){
+    flex-grow:1;
+    margin-right:10px;
+}
+
+#videoPage > div:nth-of-type(1)> div:nth-of-type(1) img{
+    width:100%;
+    margin-bottom:50px;
+}
+
+#videoPage> div:nth-of-type(1) > div:nth-of-type(2){
+    display:flex;
+}
+
+#videoPage > div:nth-of-type(1) > div:nth-of-type(2)> div:nth-of-type(1){
+    background-color:rgb(212, 0, 255);
+    width:2em;
+    height:2em;
+    border:1px solid white;
+    border-radius:2em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#videoPage > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2){
+    flex-grow:1;
+    margin-left:10px;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+#videoPage > div:nth-of-type(1) input{
+    color:white;
+    background-color:transparent;
+    width:100%;
+    border:0px solid;
+    border-bottom:2px solid rgb(154, 154, 154);
+    border-radius:2px;
+    outline:none;
+}
+
+#videoPage > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div{
+    flex-grow:1;
+    display:flex;
+    justify-content:right;
+}
+
+#videoPage > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)  button{
+    background-color:rgb(35, 142, 230);
+    padding:5px 12px;
+    border:0px solid;
+    border-radius:15px;
+    margin-top:5px;
+
+}
+
+#videoPage > div:nth-of-type(1) input:focus{
+    border-bottom:2px solid white;
+}
+
+.sampleVideo{
+    display:flex;
+    margin-bottom:10px;
+}
+
+.sampleVideo > div:nth-of-type(1){
+    width:130px;
+    height:80px;
+    border:2px solid white;
+    border-radius:5px;
+    margin-right:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

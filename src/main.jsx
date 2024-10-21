@@ -36,7 +36,7 @@ const router=createBrowserRouter([
         element:<ChannelDashboard/>
       },
       {
-        path:"/videoPage",
+        path:"/videoPage/:id",
         element:<VideoPage/>
       }
     ]
